@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rexhouy.persistence.PointMapper">
+
+	<cache />
+
+	<select id="getPointByX" parameterType="string" resultType="Point">
+		SELECT * FROM point where x = #{x}
+	</select>
+
+	<select id="getPointByY" parameterType="string" resultType="Point">
+		SELECT * FROM point where y = #{y}
+	</select>
+
+	<select id="getPoints" resultType="Point">
+		select * from point;
+	</select>
+
+	<update id="updatePoint" parameterType="Point">
+		update point set y = #{y}
+		where x = #{x}
+	</update>
+
+	<insert id="insertPoint" parameterType="Point">
+		insert into point set
+		x = #{x}, y = #{y}
+	</insert>
+
+</mapper>
